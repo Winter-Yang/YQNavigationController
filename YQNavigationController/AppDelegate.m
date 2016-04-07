@@ -21,10 +21,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.rootViewController = [[MainViewController alloc] init];
     
-    [YQBaseNavigationController shareNavgationController].fullScreenPopGestureEnable = YES; //开启全屏返回手势
-    
-    [YQBaseNavigationController shareNavgationController].backButtonImage = [UIImage imageNamed:@"navibar_back"]; //设置返回按钮图片
-    
+//    [YQBaseNavigationController shareNavgationController].fullScreenPopGestureEnable = YES; //开启全屏返回手势
+//    
+//    [YQBaseNavigationController shareNavgationController].backButtonImage = [UIImage imageNamed:@"navibar_back"]; //设置返回按钮图片
+//
+
     [self.window makeKeyAndVisible];
     
     self.window.backgroundColor = [UIColor whiteColor];

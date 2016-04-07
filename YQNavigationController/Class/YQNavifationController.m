@@ -10,6 +10,40 @@
 #define kDefaultBackImageName @"navibar_back"
 
 
+
+/**
+ *  控制子视图的显示
+ *
+ *  @param YQWrapViewController <#YQWrapViewController description#>
+ *
+ *  @return <#return value description#>
+ */
+
+@interface YQNavigationViewcontrollerManage : NSObject
++(YQNavigationViewcontrollerManage*)share;
+@property (nonatomic,strong) NSMutableArray * viewControllers;
+@end
+
+@implementation YQNavigationViewcontrollerManage
+
++(YQNavigationViewcontrollerManage*)share
+{
+    static YQNavigationViewcontrollerManage *manage = nil;
+    static dispatch_once_t onece;
+    dispatch_once(&onece, ^{
+        manage = [[self alloc]init];
+    });
+    return manage;
+}
+
+-(instancetype)init{
+    if (self) {
+        self.viewControllers = [[NSMutableArray alloc]init];
+    }
+    return self;
+}
+
+@end
 /**
  *  真正意义上的展示的导航视图
  *
@@ -18,10 +52,7 @@
 #pragma mark - YQWrapNavigationController
 
 @interface YQWrapNavigationController : UINavigationController
-
 @end
-
-
 /**
  *  导航视图的父视图
  *
@@ -44,29 +75,42 @@
 @implementation YQWrapNavigationController
 
 - (UIViewController *)popViewControllerAnimated:(BOOL)animated {
+    [[YQNavigationViewcontrollerManage share].viewControllers removeLastObject];
+
+
+    NSLog(@"%lu",(unsigned long)[YQNavigationViewcontrollerManage share].viewControllers.count);
     YQWrapNavigationController *na = (YQWrapNavigationController *)self.navigationController;
     return [na popViewControllerAnimated:animated];
 }
 
 - (NSArray<UIViewController *> *)popToRootViewControllerAnimated:(BOOL)animated {
+    [[YQNavigationViewcontrollerManage share].viewControllers removeAllObjects];
+
+
+
+
     YQWrapNavigationController *na = (YQWrapNavigationController *)self.navigationController;
-    
     return [na popToRootViewControllerAnimated:animated];
 }
 
 - (NSArray<UIViewController *> *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated {
     YQWrapNavigationController *na = (YQWrapNavigationController *)self.navigationController;
-    NSInteger index = [na.viewControllers indexOfObject:viewController];
-    return [na popToViewController:na.viewControllers[index] animated:animated];
+    return [na popToViewController:viewController animated:animated];
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    
+
+
+
+
     UIImage *backButtonImage = [UIImage imageNamed:kDefaultBackImageName];
     viewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:backButtonImage style:UIBarButtonItemStylePlain target:self action:@selector(didTapBackButton)];
     viewController.hidesBottomBarWhenPushed = YES;
     YQWrapNavigationController *na = (YQWrapNavigationController *)self.navigationController;
-    [na pushViewController:[YQWrapViewController wrapViewControllerWithViewController:viewController] animated:animated];
+
+    YQWrapViewController * wrapVC = [YQWrapViewController wrapViewControllerWithViewController:viewController];
+    [[YQNavigationViewcontrollerManage share].viewControllers addObject:wrapVC];
+    [na pushViewController:wrapVC animated:animated];
 }
 
 - (void)didTapBackButton {
@@ -106,7 +150,10 @@
 
 - (instancetype)initWithRootViewController:(UIViewController *)rootViewController {
     if (self = [super init]) {
-        self.viewControllers = @[[YQWrapViewController wrapViewControllerWithViewController:rootViewController]];
+
+        YQWrapViewController * wrapVC = [YQWrapViewController wrapViewControllerWithViewController:rootViewController];
+        [[YQNavigationViewcontrollerManage share].viewControllers addObject:wrapVC];
+        self.viewControllers = @[wrapVC];
     }
     return self;
 }

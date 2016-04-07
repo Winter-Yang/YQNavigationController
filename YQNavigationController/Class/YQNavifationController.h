@@ -9,5 +9,6 @@
 #import "YQBaseNavigationController.h"
 
 @interface YQNavifationController : YQBaseNavigationController
+@property(nonatomic,strong) NSMutableArray *arr;
 
 @end

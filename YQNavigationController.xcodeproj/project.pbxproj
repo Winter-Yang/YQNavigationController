@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		486987831CB6069A0012ADE6 /* YQTWO.m in Sources */ = {isa = PBXBuildFile; fileRef = 486987821CB6069A0012ADE6 /* YQTWO.m */; };
+		486987861CB606E80012ADE6 /* YQThree.m in Sources */ = {isa = PBXBuildFile; fileRef = 486987851CB606E80012ADE6 /* YQThree.m */; };
 		48A7DA411C7402BB00C98E8E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A7DA401C7402BB00C98E8E /* main.m */; };
 		48A7DA441C7402BB00C98E8E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A7DA431C7402BB00C98E8E /* AppDelegate.m */; };
 		48A7DA471C7402BB00C98E8E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48A7DA461C7402BB00C98E8E /* ViewController.m */; };
@@ -34,6 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		486987811CB6069A0012ADE6 /* YQTWO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQTWO.h; sourceTree = "<group>"; };
+		486987821CB6069A0012ADE6 /* YQTWO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQTWO.m; sourceTree = "<group>"; };
+		486987841CB606E80012ADE6 /* YQThree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQThree.h; sourceTree = "<group>"; };
+		486987851CB606E80012ADE6 /* YQThree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQThree.m; sourceTree = "<group>"; };
 		48A7DA3C1C7402BB00C98E8E /* YQNavigationController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YQNavigationController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48A7DA401C7402BB00C98E8E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		48A7DA421C7402BB00C98E8E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,6 +114,10 @@
 				48A7DA701C74055300C98E8E /* MainViewController.m */,
 				48A7DA751C74057D00C98E8E /* YQViewController.h */,
 				48A7DA761C74057D00C98E8E /* YQViewController.m */,
+				486987811CB6069A0012ADE6 /* YQTWO.h */,
+				486987821CB6069A0012ADE6 /* YQTWO.m */,
+				486987841CB606E80012ADE6 /* YQThree.h */,
+				486987851CB606E80012ADE6 /* YQThree.m */,
 				48A7DA641C74030B00C98E8E /* Class */,
 				48A7DA481C7402BB00C98E8E /* Main.storyboard */,
 				48A7DA4B1C7402BB00C98E8E /* Assets.xcassets */,
@@ -199,6 +209,7 @@
 				TargetAttributes = {
 					48A7DA3B1C7402BB00C98E8E = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = U433T5M9X7;
 					};
 					48A7DA541C7402BB00C98E8E = {
 						CreatedOnToolsVersion = 7.2;
@@ -252,7 +263,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				486987831CB6069A0012ADE6 /* YQTWO.m in Sources */,
 				48A7DA6B1C74033200C98E8E /* YQBaseNavigationController.m in Sources */,
+				486987861CB606E80012ADE6 /* YQThree.m in Sources */,
 				48A7DA7A1C7405FD00C98E8E /* UIColor+RandomColor.m in Sources */,
 				48A7DA711C74055300C98E8E /* MainViewController.m in Sources */,
 				48A7DA471C7402BB00C98E8E /* ViewController.m in Sources */,
@@ -385,9 +398,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = YQNavigationController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoyang.pro.YQNavigationController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ywd.q;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -396,9 +411,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = YQNavigationController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xiaoyang.pro.YQNavigationController;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ywd.q;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -446,6 +463,7 @@
 				48A7DA601C7402BB00C98E8E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		48A7DA611C7402BB00C98E8E /* Build configuration list for PBXNativeTarget "YQNavigationControllerUITests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +472,7 @@
 				48A7DA631C7402BB00C98E8E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
