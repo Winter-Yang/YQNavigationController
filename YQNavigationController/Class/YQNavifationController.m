@@ -87,6 +87,7 @@
     [[YQNavigationViewcontrollerManage share].viewControllers removeAllObjects];
 
 
+    NSLog(@"ssss");
 
 
     YQWrapNavigationController *na = (YQWrapNavigationController *)self.navigationController;
